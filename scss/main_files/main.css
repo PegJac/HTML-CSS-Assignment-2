@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+  line-height: 1.5;
+  /* Tablet*/
+  /* Desktop */ }
+  .container .start {
+    background: url(../assets/negative-space-black-forest-dawn.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 80vh;
+    color: white;
+    text-align: center;
+    padding-top: 25vh;
+    padding-left: 30px;
+    padding-right: 30px; }
+    .container .start .fa-arrow-alt-circle-down {
+      padding-top: 38vh; }
+  .container .headingProfiles {
+    text-align: center; }
+  .container .profiles {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .container .profiles .profileDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .container .profiles .profileDiv .name {
+        font-weight: bold; }
+      .container .profiles .profileDiv .profileImg {
+        width: 250px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 20px 10px lightgray; }
+      .container .profiles .profileDiv .profileText {
+        background-color: lightgray;
+        border-radius: 5px;
+        margin-right: 30px;
+        margin-left: 30px;
+        padding: 20px;
+        font-size: 16px;
+        max-width: 300px; }
+  .container .fa-arrow-alt-circle-down {
+    align-self: center; }
+  .container .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    background-color: black;
+    color: white;
+    padding: 40px;
+    margin-top: 40px; }
+    .container .footer .contactDiv {
+      padding: 20px; }
+      .container .footer .contactDiv span {
+        display: flex; }
+        .container .footer .contactDiv span i {
+          padding-right: 10px; }
+  @media screen and (min-width: 768px) {
+    .container .footer {
+      flex-direction: row; } }
+  @media screen and (min-width: 992px) {
+    .container .profiles {
+      flex-direction: row;
+      align-content: space-around;
+      flex-wrap: wrap;
+      justify-content: space-around; } }
