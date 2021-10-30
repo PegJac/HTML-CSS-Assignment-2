@@ -1,0 +1,273 @@
+@import 'partials';
+
+html {
+    scroll-behavior: smooth;
+
+    body {
+        margin: 0;
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 22px;
+            line-height: 1.5;
+
+                /* Header */
+                .header {
+                    background-color: $headerColor;
+                    position: absolute;
+                    width: 100%;
+
+                    /* Menu Items */
+                    .menu {
+                        clear: both;
+                        max-height: 0;
+                        transition: max-height .3s ease-out;
+                    }
+                    
+                    ul {
+                        list-style: none;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0;
+                        padding: 0;
+                        overflow: hidden;
+
+                        a {
+                            color: $textColor1;
+                            padding: 5px;
+                            text-decoration: none;
+                            text-align: center;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+
+                    /* Hamburger Icon*/
+                    .menu-icon {
+                        position: relative;
+                        display: flex;
+                        flex-direction: row-reverse;
+                        padding: 28px 20px;
+                        cursor: pointer;
+
+                        .nav-icon {
+                            display: flex;
+                            position: relative;
+                            background-color: white;
+                            height: 4px;
+                            width: 22px;
+                            border-radius: 25%;
+                            transition: background .3s ease-out;
+
+                            &::before {
+                                background-color: white;
+                                content: "";
+                                display: flex;
+                                height: 100%;
+                                width: 100%;
+                                border-radius: 25%;
+                                position: absolute;
+                                transition: all .3s ease-out;
+                                top: 8px;
+                            }
+
+                            &::after {
+                                background-color: white;
+                                content: "";
+                                display: flex;
+                                height: 100%;
+                                width: 100%;
+                                border-radius: 25%;
+                                position: absolute;
+                                transition: all .3s ease-out;
+                                top: -8px;
+                            }
+                        }
+                    } 
+
+                    .menu-btn {
+                        display: none;
+
+                        /* Menu Out*/
+                        &:checked ~ .menu {
+                            max-height: 240px;
+                        }
+
+                        &:checked ~ .menu-icon .nav-icon {
+                            background: transparent;
+                        }
+
+                        &:checked ~ .menu-icon .nav-icon::before {
+                            transform: rotate(-137deg);
+                            top: 0;
+                        }
+
+                        &:checked ~ .menu-icon .nav-icon::after {
+                            transform: rotate(137deg);
+                            top: 0;
+                        }
+                    }
+                }
+        
+
+            .backgroundImage {
+                position: relative;
+                background: url(../assets/negative-space-black-forest-dawn.jpg);
+                background-position: center ;
+                background-size: cover;
+                height: 100vh;
+                align-items: center;
+                color: $textColor1;
+
+
+                .welcomeText {
+                    position: relative;
+                    padding-left: 50px;
+                    padding-right: 50px;
+                    top: 30vh;
+                    text-align: center;
+                }
+
+                .arrow {
+                    position: relative;
+                    top: 60vh;
+
+                    .firstArrow {
+                        color: $textColor1;
+                    }
+                }
+            }
+
+            .headingProfiles {
+                color: $textColor2;
+                text-align: center;
+            }
+        
+            .profiles {
+                padding-left: 50px;
+                padding-right: 50px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+        
+                .profileDiv{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    color: $textColor2;
+        
+                    .profileImg {
+                        width: 250px;
+                        border-radius: 50%;
+                        box-shadow: 0px 0px 20px 10px $lightGray;
+                    }
+            
+                    .profileText {
+                        background-color: $lightGray;
+                        border-radius: 5px;
+                        margin-right: 30px;
+                        margin-left: 30px;
+                        padding: 30px;
+                        font-size: 16px;
+                        max-width: 350px;
+                    }
+                }
+            }
+
+            .arrow{
+                display: flex;
+                justify-content: center;
+
+                .secondArrow {
+                    color: $textColor2;
+                }
+            }
+
+        
+            footer {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                line-height: .5;
+                background-color: $textColor2;
+                color: $textColor1;
+                padding: 40px;
+                margin-top: 70px;
+        
+                .contactDiv {
+                    padding-bottom: 20px;
+                    padding-left: 15%;
+        
+                    a {
+        
+                        color: $textColor1;
+                        text-decoration: none;
+        
+                        p {
+                            display: flex;
+                            align-items: center;
+            
+                            i {
+                                width: 35px;
+                            }
+                        }
+                    }
+                }
+            }
+        
+            /* Tablet*/
+            @include tablet {
+                footer{
+                    flex-direction: row;
+        
+                    .contactDiv{
+                        padding-left: 0px;
+                    }
+                }
+            }
+        
+            /* Desktop */
+            @include desktop {
+                .header {
+                    ul {
+                        flex-direction: row;
+                        justify-content: flex-end;
+
+                        li {
+                            padding: 10px;
+                        }
+                    }
+
+                    .menu {
+                        clear: none;
+                        max-height: none;
+                    }
+
+                    .menu-icon {
+                        display: none;
+                    }
+                }
+
+                .profiles{
+                    flex-direction: row;
+                    align-content: center;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    padding-left: 80px;
+                    padding-right: 80px;
+        
+                    .profileDiv {
+                        width: 40%;
+                    }
+                }
+            }
+        }    
+    }
+}
